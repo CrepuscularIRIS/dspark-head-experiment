@@ -1,0 +1,194 @@
+{
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "block_size": 7,
+  "n_prompts": 30,
+  "elapsed_s": 200.8,
+  "mean_tv_all": 0.380266,
+  "mean_suffix_tv_k4plus": 0.378751,
+  "median_tv_all": 0.391004,
+  "median_suffix_tv_k4plus": 0.379891,
+  "go_threshold_tv_suffix": 0.02,
+  "verdict": "GO",
+  "per_prompt": [
+    {
+      "prompt_idx": 0,
+      "n_measurements": 40,
+      "mean_tv": 0.393769,
+      "mean_suffix_tv_k4plus": 0.335501
+    },
+    {
+      "prompt_idx": 1,
+      "n_measurements": 40,
+      "mean_tv": 0.302671,
+      "mean_suffix_tv_k4plus": 0.281672
+    },
+    {
+      "prompt_idx": 2,
+      "n_measurements": 40,
+      "mean_tv": 0.278558,
+      "mean_suffix_tv_k4plus": 0.23403
+    },
+    {
+      "prompt_idx": 3,
+      "n_measurements": 40,
+      "mean_tv": 0.344553,
+      "mean_suffix_tv_k4plus": 0.330161
+    },
+    {
+      "prompt_idx": 4,
+      "n_measurements": 40,
+      "mean_tv": 0.468576,
+      "mean_suffix_tv_k4plus": 0.51849
+    },
+    {
+      "prompt_idx": 5,
+      "n_measurements": 40,
+      "mean_tv": 0.315928,
+      "mean_suffix_tv_k4plus": 0.332867
+    },
+    {
+      "prompt_idx": 6,
+      "n_measurements": 40,
+      "mean_tv": 0.285601,
+      "mean_suffix_tv_k4plus": 0.217928
+    },
+    {
+      "prompt_idx": 7,
+      "n_measurements": 40,
+      "mean_tv": 0.299556,
+      "mean_suffix_tv_k4plus": 0.343402
+    },
+    {
+      "prompt_idx": 8,
+      "n_measurements": 40,
+      "mean_tv": 0.354949,
+      "mean_suffix_tv_k4plus": 0.286101
+    },
+    {
+      "prompt_idx": 9,
+      "n_measurements": 40,
+      "mean_tv": 0.299154,
+      "mean_suffix_tv_k4plus": 0.356573
+    },
+    {
+      "prompt_idx": 10,
+      "n_measurements": 40,
+      "mean_tv": 0.311583,
+      "mean_suffix_tv_k4plus": 0.387875
+    },
+    {
+      "prompt_idx": 11,
+      "n_measurements": 40,
+      "mean_tv": 0.441826,
+      "mean_suffix_tv_k4plus": 0.39055
+    },
+    {
+      "prompt_idx": 12,
+      "n_measurements": 40,
+      "mean_tv": 0.401228,
+      "mean_suffix_tv_k4plus": 0.338172
+    },
+    {
+      "prompt_idx": 13,
+      "n_measurements": 40,
+      "mean_tv": 0.445458,
+      "mean_suffix_tv_k4plus": 0.443758
+    },
+    {
+      "prompt_idx": 14,
+      "n_measurements": 40,
+      "mean_tv": 0.370359,
+      "mean_suffix_tv_k4plus": 0.47493
+    },
+    {
+      "prompt_idx": 15,
+      "n_measurements": 40,
+      "mean_tv": 0.538597,
+      "mean_suffix_tv_k4plus": 0.594071
+    },
+    {
+      "prompt_idx": 16,
+      "n_measurements": 40,
+      "mean_tv": 0.425597,
+      "mean_suffix_tv_k4plus": 0.421096
+    },
+    {
+      "prompt_idx": 17,
+      "n_measurements": 40,
+      "mean_tv": 0.307909,
+      "mean_suffix_tv_k4plus": 0.277907
+    },
+    {
+      "prompt_idx": 18,
+      "n_measurements": 40,
+      "mean_tv": 0.51594,
+      "mean_suffix_tv_k4plus": 0.540527
+    },
+    {
+      "prompt_idx": 19,
+      "n_measurements": 40,
+      "mean_tv": 0.263737,
+      "mean_suffix_tv_k4plus": 0.262349
+    },
+    {
+      "prompt_idx": 20,
+      "n_measurements": 40,
+      "mean_tv": 0.336926,
+      "mean_suffix_tv_k4plus": 0.257593
+    },
+    {
+      "prompt_idx": 21,
+      "n_measurements": 40,
+      "mean_tv": 0.475017,
+      "mean_suffix_tv_k4plus": 0.545341
+    },
+    {
+      "prompt_idx": 22,
+      "n_measurements": 40,
+      "mean_tv": 0.411967,
+      "mean_suffix_tv_k4plus": 0.419849
+    },
+    {
+      "prompt_idx": 23,
+      "n_measurements": 40,
+      "mean_tv": 0.441454,
+      "mean_suffix_tv_k4plus": 0.41388
+    },
+    {
+      "prompt_idx": 24,
+      "n_measurements": 40,
+      "mean_tv": 0.414635,
+      "mean_suffix_tv_k4plus": 0.408125
+    },
+    {
+      "prompt_idx": 25,
+      "n_measurements": 40,
+      "mean_tv": 0.404434,
+      "mean_suffix_tv_k4plus": 0.384079
+    },
+    {
+      "prompt_idx": 26,
+      "n_measurements": 40,
+      "mean_tv": 0.388239,
+      "mean_suffix_tv_k4plus": 0.375703
+    },
+    {
+      "prompt_idx": 27,
+      "n_measurements": 40,
+      "mean_tv": 0.422569,
+      "mean_suffix_tv_k4plus": 0.424864
+    },
+    {
+      "prompt_idx": 28,
+      "n_measurements": 40,
+      "mean_tv": 0.346989,
+      "mean_suffix_tv_k4plus": 0.341367
+    },
+    {
+      "prompt_idx": 29,
+      "n_measurements": 40,
+      "mean_tv": 0.400188,
+      "mean_suffix_tv_k4plus": 0.423768
+    }
+  ]
+}

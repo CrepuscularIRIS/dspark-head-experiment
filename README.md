@@ -30,10 +30,13 @@ Measured per-position acceptance rates of the released DSpark baseline across 4 
 
 ### 2. DPC Signal (Positive — 2nd-order info exists)
 
-Differential Prediction Contract probe on Qwen3-4B:
-- Swapping x_{k-2} causes 28-31% TV shift at positions 2-6
-- E[τ] oracle with 2nd-order: 6.00 vs 1st-order: 3.09 (+94%)
-- **Verdict**: Large recoverable 2nd-order sequential information exists
+Differential Prediction Contract probe (Probe A), run on **Qwen2.5-7B-Instruct** (already cached
+locally; note this is NOT the campaign's Qwen3-4B training platform):
+- Swapping x_{k-2} causes a **~38% mean TV shift** (median suffix TV k≥4 = 0.380, per-prompt range
+  0.22–0.59, 30 prompts × 40 measurements) — artifact: `results/dpc/DPC_RESULT.json`
+- The planned Probe C (offline E[τ] oracle replay) was **never executed** — no accepted-length ceiling
+  was measured; earlier "94% E[τ] ceiling" statements had no backing artifact
+- **Verdict**: Large 2nd-order sequential information exists; its accepted-length ceiling is unmeasured
 
 ### 3. From-Scratch Training (Negative — data insufficient)
 
@@ -84,6 +87,7 @@ implementations/
 
 results/
   ceiling_probe/        # Per-position acceptance profiles (4 datasets)
+  dpc/                  # DPC probe raw result (Qwen2.5-7B-Instruct, ~38% TV)
   eval_step500/         # From-scratch training eval (RSMH vs Vanilla)
   eval_warmstart/       # Warm-start training eval (RSMH + FIR vs baseline)
 
@@ -106,6 +110,6 @@ design/
 
 1. **Latent branch loss**: Open-ended text shows exponential acceptance decay because early draft tokens commit to a continuation branch that a memoryless head cannot propagate.
 
-2. **Frozen-backbone conflict**: Head-only training on a jointly-trained backbone+head system degrades all positions uniformly, regardless of head architecture.
+2. **Warm-start head-only recipe degrades uniformly**: Head-only training on a jointly-trained frozen backbone with a small non-target-generated cache degrades all positions, regardless of head architecture. Frozen-backbone conflict vs training-data mismatch was NOT disambiguated before closure.
 
-3. **DPC ceiling is real**: 94% E[τ] improvement potential exists in 2nd-order information, but recovering it requires joint training at scale.
+3. **2nd-order signal is real, ceiling unmeasured**: ~38% TV from x_{k-2} (Qwen2.5-7B-Instruct probe). Recovering it requires joint training and/or target-generated data at scale; the E[τ] ceiling was never measured (Probe C not run).
