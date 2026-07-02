@@ -30,13 +30,17 @@ Measured per-position acceptance rates of the released DSpark baseline across 4 
 
 ### 2. DPC Signal (Positive — 2nd-order info exists)
 
-Differential Prediction Contract probe (Probe A), run on **Qwen2.5-7B-Instruct** (already cached
-locally; note this is NOT the campaign's Qwen3-4B training platform):
-- Swapping x_{k-2} causes a **~38% mean TV shift** (median suffix TV k≥4 = 0.380, per-prompt range
-  0.22–0.59, 30 prompts × 40 measurements) — artifact: `results/dpc/DPC_RESULT.json`
-- The planned Probe C (offline E[τ] oracle replay) was **never executed** — no accepted-length ceiling
-  was measured; earlier "94% E[τ] ceiling" statements had no backing artifact
-- **Verdict**: Large 2nd-order sequential information exists; its accepted-length ceiling is unmeasured
+Two independent DPC runs (the original write-up conflated them; corrected 2026-07-02):
+- **Run 1** (main loop, Qwen2.5-7B-Instruct, 30 prompts): swapping x_{k-2} causes **mean TV 0.380**
+  (per-prompt suffix range 0.22–0.59) — artifact: `results/dpc/DPC_RESULT.json`
+- **Run 2** (executor agent, **Qwen3-4B**, 50 prompts / 400 blocks, seed 42): Probe A **TV mean
+  0.26–0.31** at k=2–6 (bimodal: median 0.02–0.06, p75 0.48–0.69); Probe C E[τ] = 3.09 for the
+  marginalized 1st-order proxy vs 6.00 oracle bound — artifact: `results/dpc/DPC_RESULT_qwen3_4b.json`
+  (recovered from an unmerged worktree)
+- **Caveat**: the "+94% E[τ] ceiling" framing was misleading — 6.00 is the trivial perfect-acceptance
+  bound and 3.09 is a proxy, while the real released head already achieves 6.16 on gsm8k. The signal
+  is distribution-level; the reliable prize sizing is the ceiling probe (§1)
+- **Verdict**: Large 2nd-order sequential information exists on both probed models
 
 ### 3. From-Scratch Training (Negative — data insufficient)
 
@@ -112,4 +116,4 @@ design/
 
 2. **Warm-start head-only recipe degrades uniformly**: Head-only training on a jointly-trained frozen backbone with a small non-target-generated cache degrades all positions, regardless of head architecture. Frozen-backbone conflict vs training-data mismatch was NOT disambiguated before closure.
 
-3. **2nd-order signal is real, ceiling unmeasured**: ~38% TV from x_{k-2} (Qwen2.5-7B-Instruct probe). Recovering it requires joint training and/or target-generated data at scale; the E[τ] ceiling was never measured (Probe C not run).
+3. **2nd-order signal is real, prize sizing belongs to the ceiling probe**: mean TV 0.38 (Qwen2.5-7B) / 0.26–0.31 bimodal (Qwen3-4B) from x_{k-2} swaps. Recovering it requires joint training and/or target-generated data at scale. The "94% E[τ] ceiling" was a proxy-vs-trivial-bound comparison, not an achievable improvement figure.

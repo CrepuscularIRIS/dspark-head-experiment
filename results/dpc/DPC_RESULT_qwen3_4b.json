@@ -1,0 +1,93 @@
+{
+  "probe": "DPC",
+  "version": "simplified_target_only",
+  "model": "Qwen/Qwen3-4B",
+  "num_prompts": 50,
+  "block_size": 7,
+  "seed": 42,
+  "num_alternatives_probe_c": 3,
+  "total_blocks": 400,
+  "total_swap_forward_passes": 6000,
+  "wall_time_seconds": 194,
+  "probe_a_tv_by_position": {
+    "2": {
+      "mean": 0.3095,
+      "std": 0.4067,
+      "median": 0.0567,
+      "p25": 0.0002,
+      "p75": 0.6862,
+      "n": 400
+    },
+    "3": {
+      "mean": 0.2906,
+      "std": 0.3914,
+      "median": 0.0572,
+      "p25": 0.0002,
+      "p75": 0.6362,
+      "n": 400
+    },
+    "4": {
+      "mean": 0.2586,
+      "std": 0.3853,
+      "median": 0.0159,
+      "p25": 0.0001,
+      "p75": 0.4789,
+      "n": 400
+    },
+    "5": {
+      "mean": 0.2934,
+      "std": 0.4054,
+      "median": 0.0378,
+      "p25": 0.0001,
+      "p75": 0.6830,
+      "n": 400
+    },
+    "6": {
+      "mean": 0.2777,
+      "std": 0.3869,
+      "median": 0.0167,
+      "p25": 0.0000,
+      "p75": 0.5717,
+      "n": 400
+    }
+  },
+  "probe_c_acceptance_by_position": {
+    "1": {
+      "mean": 1.0000,
+      "std": 0.0000,
+      "n": 400
+    },
+    "2": {
+      "mean": 0.7052,
+      "std": 0.3139,
+      "n": 400
+    },
+    "3": {
+      "mean": 0.7362,
+      "std": 0.2900,
+      "n": 400
+    },
+    "4": {
+      "mean": 0.7331,
+      "std": 0.3058,
+      "n": 400
+    },
+    "5": {
+      "mean": 0.7241,
+      "std": 0.2952,
+      "n": 400
+    },
+    "6": {
+      "mean": 0.7481,
+      "std": 0.2907,
+      "n": 400
+    }
+  },
+  "e_tau_markov_proxy": 3.0866,
+  "e_tau_oracle": 6.0,
+  "e_tau_gain": 2.9134,
+  "late_position_tv_values": [0.2934, 0.2777],
+  "tv_criterion_pass": true,
+  "tau_criterion_pass": true,
+  "verdict": "GO"
+}
